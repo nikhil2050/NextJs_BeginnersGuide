@@ -121,3 +121,39 @@ export default function GlobalError({error,}: { error: Error & { digest?: string
 }
 
 ```
+
+## Loading UI's
+- Displaying loading progress until data is fetched from DB
+- Works similarly to error-handling
+- Just add a file with name 'loading.tsx' in the app/ folder
+
+## Static Site Generation (SSG)
+- Its a technique where HTML pages are built at build time. 
+- ie. Content is created when site is deployed, not when user requests it.
+- Uses: Blogs, Documentation sites, marketing pages.
+- You may have to go for 'Incremental Static Regeneration' (ISR). It is an extension of SSG that allows to update static content after site is built.
+- ie. It will create static pages at build time behaving like SSG and then after some time, it will create/update those static pages once again you deploy your site.
+- 2 strategies for SSG
+  1. Time-based revalidation (Revalidate page after some time using "export const revalidate = 3600")
+  2. Revalidate request after some time
+  3. On-demand revalidation with revalidatePath
+  4. On-demand revalidation with revalidateTag
+- Read documentation
+
+## Server Side Rendering (SSR)
+- Content is created dynamically for each user request
+- \- Slower than SSG
+- \- Puts load on server
+- \+ Up to date content
+- Strategies for SSr:
+- 1. Time-based revalidation (Revalidate page after some time using "export const revalidate = 3600")
+  2. On-demand revalidation with revalidatePath 
+  3. On-demand revalidation with revalidateTag
+- Read documentation
+
+## Partial Pre-Rendering (PPR)
+- *NEW rendering model
+- Combines Static and Dynamic rendering
+- Allows to render a static shell of a page while Streaming dynamic content
+
+
