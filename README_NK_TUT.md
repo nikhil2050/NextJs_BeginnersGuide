@@ -45,5 +45,23 @@ Scripts in package.json:
 | "start": "next start"         | Starts NextJs in Prod mode |
 | "lint": "next lint"           | Runs ESLint for all files in the Source dir. |
 
+## Routing
+| URL Path: |            |            |
+|-----------|------------|------------|
+| acme.com  | /dashboard | /settings  | 
+| app       | /dashboard | /settings  |
+
+### 1. Route Groups
+- Route Groups make code look organized, without affecting the URL.
+- Route group is created with a directory enclosed in braces. eg. (root), (dashboard).
+- Each Route-group has its own layout.tsx
+
+NOTE: There CANNOT be multiple entrypoints (page.tsx files). Like both in (root) and (dashboard). \
+In that case, following error will be shown on browser:
+```
+    Runtime Error
+    Error: ./app/(root)
+    You cannot have two parallel pages that resolve to the same path.
+```
 
 
