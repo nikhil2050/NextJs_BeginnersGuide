@@ -157,3 +157,8 @@ export default function GlobalError({error,}: { error: Error & { digest?: string
 - Allows to render a static shell of a page while Streaming dynamic content
 
 
+## APIRoutes (Backend)
+| Path:            |   |             |
+|------------------|---|-------------|
+| app/page.js      | : | /           |
+| app/api/route.js | : | /api [POST] | 
