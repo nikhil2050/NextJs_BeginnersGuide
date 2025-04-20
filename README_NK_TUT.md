@@ -64,4 +64,60 @@ In that case, following error will be shown on browser:
     You cannot have two parallel pages that resolve to the same path.
 ```
 
+## Error Handling
+- Only the closest error file  to the route takes priority
+- Refer: https://nextjs.org/docs/app/building-your-application/routing/error-handling
 
+Boiler plate code for error.tsx:
+
+```javascript
+'use client' // Error boundaries must be Client Components
+ 
+import { useEffect } from 'react'
+ 
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string }
+  reset: () => void
+}) {
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error(error)
+  }, [error])
+ 
+  return (
+    <div>
+      <h2>Something went wrong!</h2>
+      <button
+        onClick={
+          // Attempt to recover by trying to re-render the segment
+          () => reset()
+        }
+      >
+        Try again
+      </button>
+    </div>
+  )
+}
+```
+
+Boiler plate code for global-error.tsx:
+```js
+'use client' // Error boundaries must be Client Components
+
+import { useEffect } from 'react'
+
+export default function GlobalError({error,}: { error: Error & { digest?: string } }) {
+
+    return (
+        <html>
+            <body>
+                <h2>Global Error</h2>
+            </body>
+        </html>
+    )
+}
+
+```
