@@ -145,8 +145,8 @@ export default function GlobalError({error,}: { error: Error & { digest?: string
 - \- Slower than SSG
 - \- Puts load on server
 - \+ Up to date content
-- Strategies for SSr:
-- 1. Time-based revalidation (Revalidate page after some time using "export const revalidate = 3600")
+- Strategies for SSR:
+  1. Time-based revalidation (Revalidate page after some time using "export const revalidate = 3600")
   2. On-demand revalidation with revalidatePath 
   3. On-demand revalidation with revalidateTag
 - Read documentation
@@ -162,3 +162,7 @@ export default function GlobalError({error,}: { error: Error & { digest?: string
 |------------------|---|-------------|
 | app/page.js      | : | /           |
 | app/api/route.js | : | /api [POST] | 
+
+## SEO
+- Refer: https://nextjs.org/docs/app/api-reference/file-conventions/metadata
+
